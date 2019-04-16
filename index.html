@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>My Title</title>
+    <link href="css/style.css"  rel="Stylesheet"/>
+</head>
+
+<body>
+    <div></div>
+    <h1 id='h1'>
+        My H1
+    </h1>
+    <h2 class='h2'>
+        My H2
+    </h2>
+    <h3 id='h3' onclick="changeValue();">
+        My H3 1
+    </h3>
+    <h6>
+        My H6
+    </h6>
+    <a href="imagepage.html" target="_blank">view image</a><br />
+    <a href="table.html">view data table</a>
+</body>
+<style>
+   a:visited{
+    color:lightcoral;
+    text-decoration: none;
+} 
+a:hover{
+    color:lightslategray;
+    text-decoration: underline;
+} 
+a{
+    text-decoration: none;
+}
+</style>
+<script>
+    function changeValue() {
+        var data = document.getElementById("h3").innerHTML;
+        document.getElementById("h1").innerHTML = data;
+    }
+
+</script>
+
+</html>
+

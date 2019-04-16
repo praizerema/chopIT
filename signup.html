@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <title>Erema | Signup</title>
+</head>
+
+<body>
+    <div class='signupwrapper'>
+        <div class="signupPage">
+            <h1 class="signupHead">Signup</h1>
+            <form action="" method="POST">
+                <label for='firstname'>Firstname:</label>
+                <input name='firstname' id="firstname" type="text" placeholder="firstname" onfocus="errhandling()" />
+                <div class="errwrap">
+                    <span id="errorFirst" class="error hide">Enter your firstname with more than 3
+                        characters.
+                    </span>
+                </div>
+                <label for='lastname'>Lastname:</label>
+                <input name='lastname' id='lastname' type="text" placeholder="lastname" onfocus="errhandling()" />
+                <div class="errwrap">
+                    <span id="errorLast" class="error hide">Enter your Lastname with 3 or more characters.</span>
+                </div>
+                <label for='email'>Email:</label>
+                <input name='email' id='email' type="email" placeholder="email" onfocus="errhandling()" />
+                <div class="errwrap">
+                    <span id="errorEmail" class="error hide">Enter a valid email</span>
+                </div>
+                <label for='password'>Password:</label>
+                <input name='password' id="password" type="password" placeholder="password" onfocus="errhandling()" />
+                <div class="errwrap">
+                    <span id="errorPass" class="error hide">This is not the expected Password</span>
+                </div>
+                <label for='password2'> Confirm Password:</label>
+                <input name='password2' id='password2' type="password" placeholder="Confirm password"
+                    onfocus="errhandling()" />
+                <div class="errwrap">
+                    <span id="errorPass2" class="error hide">Passwords do not match</span>
+                </div>
+                <p>
+                    By clicking join you agree to erema's user agreement.
+                </p>
+                <button type="button" name="signup" onclick="func()">Join now</button>
+                <div class="errwrap">
+                    <span id="error" class="error hide">Invalid Detail supply</span>
+                </div>
+                <p>
+                    Already on erema? <a href="login.html" target="_blank">Signin
+
+                    </a>
+
+                </p>
+            </form>
+        </div>
+
+    </div>
+    <div style="position:absolute;bottom:0px;text-align:center; width:99%"> copyright @Erema 2019 </div>
+</body>
+
+</html>
+<script>
+    function func() {
+        let firstname = document.getElementById('firstname').value
+        let lastname = document.getElementById('lastname').value
+        let pass = document.getElementById('password').value
+        let email = document.getElementById('email').value
+        let pass2 = document.getElementById('password2').value
+
+        if (firstname.length < 3) {
+            document.getElementById('errorFirst').classList.remove('hide')
+        }
+        else if (lastname.length < 3) {
+            document.getElementById('errorLast').classList.remove('hide')
+        }else if(!/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(email)){
+            document.getElementById('errorEmail').classList.remove('hide')
+        } else if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)){
+            document.getElementById('errorPass').classList.remove('hide')
+        } else if(pass !== pass2){
+            document.getElementById('errorPass2').classList.remove('hide')
+        }else{
+            window.location = 'calculator.html';
+        }
+
+    }
+    function errhandling() {
+        document.getElementById('errorFirst').classList.add('hide')
+        document.getElementById('errorLast').classList.add('hide')
+        document.getElementById('errorPass').classList.add('hide')
+        document.getElementById('errorPass2').classList.add('hide')
+        document.getElementById('errorEmail').classList.add('hide')
+        document.getElementById('error').classList.add('hide')
+    }
+</script>
+<style>
+    body {
+        width: 99%;
+        line-height: 1.4;
+    }
+
+    .signupwrapper {
+        width: 100%;
+        height: 90vh;
+        background-color: #fff;
+        text-align: center;
+        top: 0;
+        position: relative;
+    }
+
+    .signupPage {
+        width: 350px;
+        background-color: #efefef;
+        padding: 10px;
+        margin: auto;
+        margin-top: 5vh;
+        border-radius: 2px;
+        box-shadow: 5px 10px 5px 10px #888888;
+        text-align: left;
+    }
+
+    label,
+    input,
+    button {
+        width: 100%;
+        height: 40px;
+        padding: 10px 5px;
+        font-size: 1em;
+        margin: 5px;
+        border: 1px thin gray;
+    }
+
+    label {
+        font-weight: 700;
+        text-align: left !important;
+        font-size: 1.2em;
+    }
+
+    button {
+        background-color: #22eeee;
+        height: 60px;
+        border-radius: 4px;
+        color: #fff;
+    }
+
+    button:hover {
+        background-color: #22aaaa;
+        box-shadow: 1px;
+    }
+
+    a:link {
+        color: blue;
+        background-color: transparent;
+        text-decoration: none
+    }
+
+    a:visited {
+        color: pink;
+        background-color: transparent;
+        text-decoration: none
+    }
+
+    a:hover {
+        color: purple;
+        background-color: transparent;
+        text-decoration: none
+    }
+
+    a:active {
+        color: green;
+        background-color: transparent;
+        text-decoration: underline
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .errWrap {
+        text-align: center;
+    }
+
+    .error {
+        font-size: 12px;
+        margin: auto;
+        color: #ff3361;
+    }
+</style>

@@ -1,0 +1,14 @@
+h1 {
+    color: rgba(212, 200, 29, 0.719);
+    font-style: italic;
+}
+
+.h2 {
+    float: right;
+    padding: 12px;
+}
+
+#h3 {
+    font-weight: lighter;
+    background: red;
+}

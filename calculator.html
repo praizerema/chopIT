@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <title>Simple Calculator</title>
+</head>
+
+<body>
+    <div class='Calculatorwrapper'>
+        <div class="calculatorPage">
+            <h1 class="calculatorHead">CALC</h1>
+            <div class="calculatorScreen" id='screen'></div>
+            <button type="button" name="on" id='on' onclick="operation('on')">ON</button>
+            <button type="button" name="%">%</button>
+            <button type="button" name="off">OFF</button>
+            <button type="button" name="one" id='one' onclick='display(one.innerHTML)'>1</button>
+            <button type="button" name="two" id='two' onclick='display(two.innerHTML)'>2</button>
+            <button type="button" name="three" id='three' onclick='display(three.innerHTML)'>3</button>
+            <button type="button" name="four" id='four' onclick='display(four.innerHTML)'>4</button>
+            <button type="button" name="five" id='five' onclick='display(five.innerHTML)'>5</button>
+            <button type="button" name="six" id='six' onclick='display(six.innerHTML)'>6</button>
+            <button type="button" name="seven" id='seven' onclick='display(seven.innerHTML)'>7</button>
+            <button type="button" name="eight" id='eight' onclick='display(eight.innerHTML)'>8</button>
+            <button type="button" name="nine" id='nine' onclick='display(nine.innerHTML)'>9</button>
+            <button type="button" name="zero" id='zero' onclick='display(ten.innerHTML)'>0</button>
+            <button type="button" name="plus" id='plus' onclick='display(plus.innerHTML)'>+</button>
+            <button type="button" name="minus" id='minus' onclick='display(minus.innerHTML)'>-</button>
+            <button type="button" name="divide" id='divide' onclick='display(divide.innerHTML)'>/</button>
+            <button type="button" name="multiply" id= 'multiply' onclick='display(multiply.innerHTML)'>*</button>
+            <button type="button" name="dot" id='dot' onclick='display(dot.innerHTML)'>.</button>
+            <button type="button" name="del" id='del' onclick='display(del.innerHTML)'>del</button>
+            <button class="equalto" type="button" name="=" >=</button>
+</body>
+
+</html>
+<script>
+    function display(val) {
+        var data = document.getElementById('screen').innerHTML;
+        document.getElementById('screen').innerHTML = data + val
+    }
+    function operation(op){
+        if(op=='on') document.getElementById('screen').innerHTML='0';
+    }
+</script>
+
+
+<style>
+    body {
+        width: 99%;
+        line-height: 1.4;
+    }
+
+    .calculatorwrapper {
+        width: 100%;
+        height: 85vh;
+        background-color: #fff;
+        text-align: center;
+        top: 0;
+        position: relative;
+    }
+
+    .calculatorHead {
+        color: teal;
+        text-align: left;
+        font-style: italic;
+
+    }
+
+    .calculatorPage {
+        width: 250px;
+        background-color: #efefef;
+        padding: 10px;
+        margin: auto;
+        margin-top: 14vh;
+        border-radius: 2px;
+        box-shadow: 5px 10px 5px 10px #888888;
+        text-align: auto;
+    }
+
+    .calculatorScreen {
+        width: 130px;
+        height: 40px;
+        border: 4px solid gray;
+        padding: 20px;
+        margin: auto;
+        border-radius: 4px;
+        background-color: transparent;
+    }
+
+    button {
+        width: 50px;
+        height: 30px;
+        padding: 6px 5px;
+        font-size: 1em;
+        margin: 5px;
+        border: 1px thin gray;
+        background-color: #22eeee;
+        border-radius: 4px;
+        color: #fff;
+        display: inline-block;
+
+
+    }
+
+    button:hover {
+        background-color: #22aaaa;
+        box-shadow: 1px;
+
+    }
+
+    .equalto {
+        width: 115px;
+
+    }
+</style>

@@ -1,0 +1,222 @@
+<html>
+
+<head>
+  <title>Erema | Home</title>
+</head>
+
+<body>
+  <div>
+    <div class='homewrapper'>
+      <!-- <h1 class="homeHead">Home</h1> -->
+
+      <ul class="homeHead">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Product</a></li>
+        <li style="float:left; padding: 16px 16px;">
+          <img src="image/index.jpg" width='25px' ; height='25px;'></li>
+      </ul>
+
+      <div class="gallery">
+        <img src="image/img_5terre.jpg" class='mainImg' />
+      </div>
+      <section class="product">
+        <h1 class="productHead" style="font-size: 2em; color: black; text-align: center">Our Products</h1>
+        <div class="productCard">
+          <div class="cat">Cat.A</div>
+          <div><a href="#">Product 1</a></div>
+          <div><a href="#">Product 2</a></div>
+          <div><a href="#">Product 3</a></div>
+          <div><a href="#">Explore More</a></div>
+        </div>
+        <div class="productCard">
+          <div class="cat">Cat.B</div>
+          <div><a href="#">Product 1</a></div>
+          <div><a href="#">Product 2</a></div>
+          <div><a href="#">Product 3</a></div>
+          <div><a href="#">Explore More</a></div>
+        </div>
+        <div class="productCard">
+          <div class="cat">Cat.C</div>
+          <div><a href="#">Product 1</a></div>
+          <div><a href="#">Product 2</a></div>
+          <div><a href="#">Product 3</a></div>
+          <div><a href="#">Explore More</a></div>
+
+        </div>
+      </section>
+    </div>
+
+    <div style="clear:both"></div>
+    <div class="purchase">
+      <div class="productList">
+        <div>1</div>
+        <div>Product 1</div>
+        <div> Type</div>
+        <div>Amount</div>
+        <div>Description</div>
+        <div style="text-align: center"><a href="#" class='a btn'>Add</a> </div>
+      </div>
+      <div class="productList">
+        <div>2</div>
+        <div>Product 2</div>
+        <div> Type</div>
+        <div>Amount</div>
+        <div>Description</div>
+        <div style="text-align: center"><a href="#" class='a btn'>Add</a> </div>
+      </div>
+      <div class="productList">
+          <div>1</div>
+          <div>Product 1</div>
+          <div> Type</div>
+          <div>Amount</div>
+          <div>Description</div>
+          <div style="text-align: center"><a href="#" class='a btn'>Add</a> </div>
+        </div>
+        <div class="productList">
+          <div>2</div>
+          <div>Product 2</div>
+          <div> Type</div>
+          <div>Amount</div>
+          <div>Description</div>
+          <div style="text-align: center"><a href="#" class='a btn'>Add</a> </div>
+        </div>
+      &nbsp;
+    </div>
+
+    <div style="clear:both"></div>
+    <footer style="position:relative;bottom:0px;text-align:center; width:100%;"> copyright @Erema 2019 </footer>
+  </div>
+</body>
+
+</html>
+<style>
+  body {
+    margin: 0;
+  }
+
+  .productCard {
+    width: 29%;
+    background-color: #efefef;
+    padding: 10px;
+    margin: 1%;
+    float: left;
+    border-radius: 2px;
+    text-align: left;
+  }
+
+  .listProduct {
+    flex: row;
+    flex-direction: row;
+  }
+
+  .homeHead {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(117, 111, 111);
+    font-size: 1.5em;
+  }
+
+  .homewrapper {
+    width: 100%;
+  }
+
+  li {
+    float: right;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 24px;
+    border-right: 1px solid #bbb;
+  }
+
+  li a:active {
+    background-color: green;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  .mainImg {
+    width: 100%;
+    height: calc(100vh - 64px);
+  }
+
+  div.gallery {
+    margin-top: 64px;
+    width: 100%;
+    height: auto;
+
+  }
+
+  .cat {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 10px;
+  }
+
+  .productCard a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 24px;
+    border-bottom: 1px solid #bbb;
+    background-color: #555;
+    font-size: 1.2em
+  }
+
+  .productCard a:hover {
+    background-color: #000;
+    color: white;
+    font-size: 1.5em;
+  }
+
+  div.purchase {
+    background-color: #efefef;
+    padding: 30px 10px;
+  }
+
+
+  .productList div {
+    float: left;
+    width: 16.6%;
+    font-size: 14px;
+    color:#fff;
+  }
+
+  .productList {
+    clear: both;
+    height: 45px;
+    background: darkcyan;
+    padding: 30px 15px 5px;
+  }
+
+  .a.btn {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: cyan;
+    border: 1px solid cadetblue;
+    min-width: 50%;
+  }
+
+  .a.btn:hover {
+    color: cadetblue;
+  }
+</style>

@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <title>Erema | Login</title>
+</head>
+
+<body>
+    <div class='loginwrapper'>
+        <div class="loginPage">
+            <h1 class="loginHead">Login</h1>
+            <form action="" method="POST">
+                <label for='username'>Username:</label>
+                <input name='username' id='username' type="text" placeholder="username"  onfocus="errhandling()"/>
+                <div class="errwrap">
+                    <span id="errorUser" class="error hide">Enter Username</span>
+                </div>
+                <label for='password'>Password:</label>
+                <input name='password' id='password' type="password" placeholder="password"  onfocus="errhandling()"/>
+                <div class="errwrap">
+                    <span id="errorPass" class="error hide">Enter Password.</span>
+                </div>
+                <button type="button" name="login" onclick="func()">Login</button>
+                <div class="errwrap">
+                    <span id='error' class='error hide'>Invalid login</span>
+                </div>
+            </form>
+        </div>
+        <div style="position:absolute;bottom:0px;text-align:center; width:100%"> copyright @Erema 2019 </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function func() {
+        const username = 'praise';
+        const password = 'erema';
+        let user = document.getElementById('username').value
+        let pass = document.getElementById('password').value
+        if (username == user && password == pass) {
+            window.location = 'calculator.html';
+        } else if (user == "") { document.getElementById('errorUser').classList.remove('hide') }
+        else if (pass == "") { document.getElementById('errorPass').classList.remove('hide') }
+        else { document.getElementById('error').classList.remove('hide') }
+    }
+    function errhandling() {
+        document.getElementById('errorUser').classList.add('hide')
+        document.getElementById('errorPass').classList.add('hide')
+        document.getElementById('error').classList.add('hide')
+    }
+</script>
+<style>
+    body {
+        width: 99%;
+        line-height: 1.4
+    }
+
+    .loginwrapper {
+        width: 100%;
+        height: 85vh;
+        background-color: #fff;
+        text-align: center;
+        top: 0;
+        position: relative;
+    }
+
+    .loginPage {
+        width: 350px;
+        background-color: #efefef;
+        padding: 10px;
+        margin: auto;
+        margin-top: 14vh;
+        border-radius: 2px;
+        box-shadow: 5px 10px 5px 10px #888888;
+        text-align: left;
+    }
+
+    label,
+    input,
+    button {
+        width: 100%;
+        height: 50px;
+        padding: 10px 5px;
+        font-size: 1em;
+        margin: 5px;
+        border: 1px thin gray;
+    }
+
+    label {
+        font-weight: 700;
+        text-align: left !important;
+        font-size: 1.2em;
+    }
+
+    button {
+        background-color: #22eeee;
+        height: 60px;
+        border-radius: 4px;
+        color: #fff;
+    }
+
+    button:hover {
+        background-color: #22aaaa;
+        box-shadow: 1px;
+    }
+
+    .errwrap {
+        text-align: center;
+    }
+
+    .error {
+        font-size: 12px;
+        margin: auto;
+        color: #ff3361;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+
+</style>
