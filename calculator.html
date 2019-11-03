@@ -8,10 +8,10 @@
     <div class='Calculatorwrapper'>
         <div class="calculatorPage">
             <h1 class="calculatorHead">CALC</h1>
-            <div class="calculatorScreen" id='screen'></div>
+            <div class="calculatorScreen" id='screen'>0</div>
             <button type="button" name="on" id='on' onclick="operation('on')">ON</button>
-            <button type="button" name="%">%</button>
-            <button type="button" name="off">OFF</button>
+            <button type="button" name="percent" id='percent' onclick='operation(percent.innerHTML)'>%</button>
+            <button type="button" name="del" id='del' onclick='operation(del.innerHTML)'>del</button>
             <button type="button" name="one" id='one' onclick='display(one.innerHTML)'>1</button>
             <button type="button" name="two" id='two' onclick='display(two.innerHTML)'>2</button>
             <button type="button" name="three" id='three' onclick='display(three.innerHTML)'>3</button>
@@ -21,25 +21,118 @@
             <button type="button" name="seven" id='seven' onclick='display(seven.innerHTML)'>7</button>
             <button type="button" name="eight" id='eight' onclick='display(eight.innerHTML)'>8</button>
             <button type="button" name="nine" id='nine' onclick='display(nine.innerHTML)'>9</button>
-            <button type="button" name="zero" id='zero' onclick='display(ten.innerHTML)'>0</button>
-            <button type="button" name="plus" id='plus' onclick='display(plus.innerHTML)'>+</button>
-            <button type="button" name="minus" id='minus' onclick='display(minus.innerHTML)'>-</button>
-            <button type="button" name="divide" id='divide' onclick='display(divide.innerHTML)'>/</button>
-            <button type="button" name="multiply" id= 'multiply' onclick='display(multiply.innerHTML)'>*</button>
+            <button type="button" name="minusplus" id='minusplus' onclick='operation(minusplus.innerHTML)'>-/+</button>
+            <button type="button" name="zero" id='zero' onclick='display(zero.innerHTML)'>0</button>
             <button type="button" name="dot" id='dot' onclick='display(dot.innerHTML)'>.</button>
-            <button type="button" name="del" id='del' onclick='display(del.innerHTML)'>del</button>
-            <button class="equalto" type="button" name="=" >=</button>
+            <button type="button" name="plus" id='plus' onclick='operation(plus.innerHTML)'>+</button>
+            <button type="button" name="minus" id='minus' onclick='operation(minus.innerHTML)'>-</button>
+            <button type="button" name="divide" id='divide' onclick='operation(divide.innerHTML)'>/</button>
+            <button type="button" name="multiply" id='multiply' onclick='operation(multiply.innerHTML)'>*</button>
+            <button class="equalto" type="button" name="equalto" id='equalto'
+                onclick='operation(equalto.innerHTML)'>=</button>
+
+        </div>
+    </div>
+
+
 </body>
 
 </html>
 <script>
+    empty = true; value = ''; operator = '';
+   
     function display(val) {
-        var data = document.getElementById('screen').innerHTML;
-        document.getElementById('screen').innerHTML = data + val
+        var data = document.getElementById('screen').innerHTML;// get screen data
+        if (val == '.' && data.indexOf('.') >= 0) {
+            return;
+        } if (data.length < 10) {
+            document.getElementById('screen').innerHTML = empty == false ? data + val : val;// display operand ("0-9","."), start over when operator is clicked
+            // if(empty==false)
+            // document.getElementById('screen').innerHTML=  data + val;
+            // else
+            // document.getElementById('screen').innerHTML=  val;
+        }
+
+
+        empty = false;
     }
-    function operation(op){
-        if(op=='on') document.getElementById('screen').innerHTML='0';
+    function operation(op) {
+        var screen = document.getElementById('screen');
+        if (op == 'on') {
+            screen.innerHTML = '0';
+            value = '';
+            operator = '';
+        }
+        else if (op == 'del') {
+            screen.innerHTML = screen.innerHTML.substring(0, screen.innerHTML.length - 1)
+            if (screen.innerHTML.length == 0) screen.innerHTML = '0';
+            empty = false;
+            return;
+        } else if (op == '-/+') {
+            value = parseFloat(screen.innerHTML);
+            value *= -1 //value= value * -1
+            screen.innerHTML = value;
+            empty = false;
+            return;
+        } else if (op == '%') {
+            value = parseFloat(screen.innerHTML);  //parseFloat: converts to real number
+            value /= 100;
+            screen.innerHTML = value;
+        } else if (empty == true) {
+            operator = op
+        } else if (operator == '+' && screen.innerHTML !== "") {
+            if (value == '') {
+                value = screen.innerHTML
+            } else {
+                value = parseFloat(value) + parseFloat(screen.innerHTML)
+                screen.innerHTML = value;
+            }
+
+            operator = op;
+            if (op == '=') {
+                operator = ''
+            }
+
+        } else if (operator == '-' && screen.innerHTML !== "") {
+            if (value == '') {
+                value = screen.innerHTML
+            } else {
+                value = parseFloat(value) - parseFloat(screen.innerHTML)
+                screen.innerHTML = value;
+            }
+            operator = op
+            if (op == '=') {
+                operator = ''
+            }
+        } else if (operator == '*' && screen.innerHTML !== "") {
+            if (value == '') {
+                value = screen.innerHTML
+            } else {//if value is not empty
+                value = parseFloat(value) * parseFloat(screen.innerHTML)//previous value multiplies current screen value
+                screen.innerHTML = value;
+            }
+            operator = op
+            if (op == '=') {
+                operator = ''
+            }
+        } else if (operator == '/' && screen.innerHTML !== "") {
+            if (value == '') {
+                value = screen.innerHTML
+            } else {
+                value = parseFloat(value) / parseFloat(screen.innerHTML)
+                screen.innerHTML = value;
+            }
+            operator = op
+            if (op == '=') {
+                operator = ''
+            }
+        } else if (operator == '' && screen.innerHTML !== "") {
+            value = screen.innerHTML
+            operator = op
+        }
+        empty = true
     }
+
 </script>
 
 
@@ -77,19 +170,21 @@
     }
 
     .calculatorScreen {
-        width: 130px;
-        height: 40px;
+        width: 160px;
+        height: auto;
         border: 4px solid gray;
-        padding: 20px;
+        padding: 5px;
         margin: auto;
         border-radius: 4px;
-        background-color: transparent;
+        background-color: #fff;
+        color: gray;
+        text-align: left;
     }
 
     button {
         width: 50px;
         height: 30px;
-        padding: 6px 5px;
+        padding: 6px;
         font-size: 1em;
         margin: 5px;
         border: 1px thin gray;
